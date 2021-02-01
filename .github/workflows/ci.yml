@@ -1,0 +1,29 @@
+name: Spring Build CI
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      # Setup Java
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "15.x"
+      # Build the JAR
+      - name: Build JAR
+        run: |
+          chmod +x gradlew
+          ./gradlew build jar
+      # Upload generated Artifact to Releases.
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.PANCAKE }}
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Builds"
+          files: |
+            LICENSE
+            ./build/libs/*.jar
