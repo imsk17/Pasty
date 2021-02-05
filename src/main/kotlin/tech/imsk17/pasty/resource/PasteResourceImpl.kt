@@ -15,7 +15,7 @@ class PasteResourceImpl(
 ) : PasteResource {
     @GetMapping("/{id}")
     override fun findById(@PathVariable id: String): ResponseEntity<PasteResponse?> {
-        val pasteResponse = this.pasteService.findById(id)
+        val pasteResponse = this.pasteService.findById(id) ?: throw NoSuchElementException("no entity with that id found")
         return ResponseEntity.ok().body(pasteResponse)
     }
 
