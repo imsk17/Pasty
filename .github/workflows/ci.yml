@@ -11,7 +11,7 @@ jobs:
       # Setup Java
       - uses: actions/setup-java@v1
         with:
-          java-version: "15.x"
+          java-version: "11.x"
       # Build the JAR
       - name: Build JAR
         run: |
@@ -22,8 +22,8 @@ jobs:
         with:
           repo_token: ${{ secrets.PANCAKE }}
           automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Builds"
+          prerelease: false
+          title: "Latest Release"
           files: |
             LICENSE
             ./build/libs/*.jar
