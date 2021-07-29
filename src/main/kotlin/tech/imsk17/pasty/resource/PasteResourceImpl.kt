@@ -20,14 +20,14 @@ class PasteResourceImpl(
     }
 
     @PostMapping("/")
-    override fun save(@RequestBody addPersonRequest: AddPasteRequest): ResponseEntity<PasteResponse> {
-        val pasteResponse = this.pasteService.save(addPersonRequest)
+    override fun save(@RequestBody addPasteRequest: AddPasteRequest): ResponseEntity<PasteResponse> {
+        val pasteResponse = this.pasteService.save(addPasteRequest)
         return ResponseEntity.ok().body(pasteResponse)
     }
 
     @PutMapping("/")
-    override fun update(@RequestBody updatePersonRequest: UpdatePasteRequest): ResponseEntity<PasteResponse> {
-        return ResponseEntity.ok().body(pasteService.update(updatePersonRequest))
+    override fun update(@RequestBody updatePasteRequest: UpdatePasteRequest): ResponseEntity<PasteResponse> {
+        return ResponseEntity.ok().body(pasteService.update(updatePasteRequest))
     }
 
     @DeleteMapping("/{id}")

@@ -7,7 +7,7 @@ import tech.imsk17.pasty.dto.UpdatePasteRequest
 
 interface PasteResource {
     fun findById(id: String): ResponseEntity<PasteResponse?>
-    fun save(addPersonRequest: AddPasteRequest): ResponseEntity<PasteResponse>
-    fun update(updatePersonRequest: UpdatePasteRequest): ResponseEntity<PasteResponse>
+    fun save(addPasteRequest: AddPasteRequest): ResponseEntity<PasteResponse>
+    fun update(updatePasteRequest: UpdatePasteRequest): ResponseEntity<PasteResponse>
     fun deleteById(id: String): ResponseEntity<Map<String, String>>
 }
