@@ -16,5 +16,6 @@ data class Paste(
     @Column(columnDefinition = "TEXT")
     val content: String,
     val expiry: LocalDateTime = LocalDateTime.now().plusMonths(6),
-    val isUrl: Boolean
+    val isUrl: Boolean,
+    val isModifiable: Boolean,
 )
